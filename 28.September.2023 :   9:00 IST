@@ -1,0 +1,23 @@
+//Question is wave array.
+
+
+
+class Solution{
+    public:
+    // arr: input array
+    // n: size of array
+    //Function to sort the array into a wave-like array.
+    void convertToWave(int n, vector<int>& arr){
+        
+        // Your code here
+         for(int i=0;i<arr.size()-1;i++)
+        {
+            if(arr[i+1]>arr[i])
+            {
+                swap(arr[i],arr[i+1]);
+                i++;
+            }
+        }
+        
+    }
+};
