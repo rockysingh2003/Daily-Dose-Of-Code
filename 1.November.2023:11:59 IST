@@ -1,0 +1,6 @@
+Q.Frequencies of Limited Range Array Elements
+
+map<int,int>mp;
+for(auto i:arr) mp[i]++;
+arr.clear();
+for(int i=1;i<=N;i++) arr.push_back(mp[i]);
