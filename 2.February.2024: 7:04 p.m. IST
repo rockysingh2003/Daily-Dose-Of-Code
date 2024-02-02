@@ -1,0 +1,32 @@
+implement atoi .
+
+
+
+int n = s.size();
+       
+        int sign1 = 1;
+        int i = 0;
+        int j = 0;
+        if(s[0]=='-'){
+            sign1 = -1;
+            i++;
+            j++;
+        }
+       
+       
+        for(j; j<n; j++){
+            if((s[j]-'0'< 0) || (s[j]-'0'> 9))
+            return -1;
+        }
+       
+       
+       
+        int sum = 0;
+        for(i; i<n; i++){
+            sum = sum * 10 + (s[i]-'0');
+        }
+       
+        if(sign1 == -1)
+        return (-1 * sum);
+       
+        return sum;
