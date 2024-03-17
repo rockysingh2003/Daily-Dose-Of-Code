@@ -1,0 +1,22 @@
+class Solution{
+  public:
+    // your task is to complete this function
+    int countPairs(struct Node* head1, struct Node* head2, int x) {
+        // Code here
+
+vector<int>a1; int ans=0;
+        while(head1){a1.push_back(head1->data); head1=head1->next;}
+        sort(a1.begin(), a1.end());
+        while(head2){
+            int xx=x-head2->data, left=0, right=a1.size()-1;
+            head2=head2->next;
+            while(left<=right){
+                int mid=(left+right)/2;
+                if(a1[mid]==xx){ans++; break;}
+                if(a1[mid]>xx){right=mid-1;}
+                else{left=mid+1;}
+                
+            }
+        }
+        return ans;    }
+};
