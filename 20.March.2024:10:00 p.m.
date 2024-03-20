@@ -1,0 +1,48 @@
+//User function Template for C++
+
+/*
+structure of the node of the binary tree is as
+struct Node
+{
+    int data;
+    struct Node *left;
+    struct Node *right;
+
+    Node(int x)
+    {
+        data = x;
+        left = NULL;
+        right = NULL;
+    }
+};
+*/
+class Solution
+{
+private:
+    int dfs(vector<pair<int,vector<int>>>& all, vector<int> cur, Node* root) {
+        if(!root) return 0;
+        cur.push_back(root->data);
+        int left=dfs(all,cur,root->left);
+        int right=dfs(all,cur,root->right);
+        if(left==0 && right==0) all.push_back({cur.size(),cur});
+        return 1;
+    }
+public:
+    int sumOfLongRootToLeafPath(Node *root)
+    {
+        //code here
+        vector<pair<int,vector<int>>> all;
+        vector<int> cur;
+        dfs(all,cur,root);
+        int maxx=0,res=0;
+        for(auto i: all)
+            maxx=max(maxx,i.first);
+        for(auto i: all) {
+            if(i.first==maxx) {
+                int summ=accumulate(i.second.begin(),i.second.end(),0);
+                res=max(res,summ);
+            }
+        }
+        return res;
+    }
+};
