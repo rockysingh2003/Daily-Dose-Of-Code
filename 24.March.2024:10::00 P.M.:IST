@@ -1,0 +1,25 @@
+//User function Template for C++
+
+class Solution{
+public:
+    stack<int> insertAtBottom(stack<int> st,int x){
+         
+        int tempVar = st.top();
+        st.pop();
+        
+        if(st.empty()){
+            
+            st.push(x);
+            st.push(tempVar); // to push to original last element because in the last recursion it is not pushed in to the stack
+            return st;
+            
+        }
+            
+         st = insertAtBottom(st,x);
+        
+        
+        st.push(tempVar);
+        
+        return st;
+    }
+};
