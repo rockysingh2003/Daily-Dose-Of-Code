@@ -1,0 +1,57 @@
+/*The Node structure is defined as
+struct Node {
+    int data;
+    Node *left;
+    Node *right;
+
+};
+*/
+
+class Solution
+{
+    public:
+    
+    void fun(Node *root,vector<int> &v)
+    {
+        if(root==NULL)
+        {
+            return;
+        }
+        
+        
+        fun(root->left,v);
+        v.push_back(root->data);
+        fun(root->right,v);
+    }
+    
+    
+    int absolute_diff(Node *root)
+    {
+        //Your code here
+        
+        vector<int> v; //it is used to store the element of BST.
+        
+        fun(root,v);  //this is a function which is going to help to store the data values present in the nodes in the vector.
+        
+        /*
+        after the running of above function ,it is look like this .
+        
+        v={30,20,70,60,80,50};
+        
+        
+        vector would like above .
+        
+        */
+        
+        int mini = INT_MAX;
+        
+        
+        for (int i = 0; i < v.size() - 1; i++) 
+        {
+        mini = min(mini, abs(v[i] - v[i + 1]));
+        }
+    
+        return mini;
+        
+    } 
+};
