@@ -1,0 +1,31 @@
+// User function Template for C++
+
+class Solution {
+  public:
+    void printArr(int n, int arr[]) {
+        // Your code for printing array here
+        for(int j=0;j<n;j++)
+        {
+            cout<<arr[j]<<" ";
+        }
+        cout<<endl;
+    }
+
+    void setToZero(int n, int arr[]) {
+        // Use memset to set arr to zero
+        for(int i=0;i<n;i++)
+        {
+           arr[i]&=0;
+        }
+    }
+
+    void xor1ToN(int n, int arr[]) {
+        // Xor arr[i]^i
+        int j=0;
+        for(int i=0;i<n;i++)
+        {
+            arr[j]=arr[i]^i;
+            j++;
+        }
+    }
+};
